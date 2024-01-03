@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&display=swap');
+
+:root {
+    --primary-col-1: hsl(10, 79%, 65%);
+    --primary-col-2: hsl(186, 34%, 60%);
+    --neutral-col-1: hsl(25, 47%, 15%);
+    --neutral-col-2: hsl(28, 10%, 53%);
+    --neutral-col-3: hsl(27, 66%, 92%);
+    --neutral-col-4: hsl(33, 100%, 98%);
+}
+
+* {
+    padding: 0; 
+    margin: 0; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box; 
+}
+
+
+
+html {
+    font-size: 18px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+body {
+    background: var(--neutral-col-3);
+    height: 100%; 
+    min-height: 100vh; 
+    width: 100vw; 
+    display: flex; 
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+}
+
+header, main {
+    min-height: 100px; 
+    border-radius: 20px;
+}
+
+header, main, h2, .details, .balance, .graph {
+    width: min(90%, 78rem); 
+    margin-inline: auto; 
+}
+
+header {
+    background: var(--primary-col-1); 
+    color: white; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-around;
+}
+
+.fw-bold {
+    font-weight: bold; 
+}
+
+
+
+main {
+    background: var(--neutral-col-4); 
+    display: flex; 
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+
+
+.graph {
+    min-height: 300px; 
+    padding-top: 2rem; 
+    gap: 1rem;   
+    display: grid; 
+    
+}
+
+.bar-container {
+    flex: 1; 
+    display: grid; 
+    grid-template-rows: 4fr 1fr;
+}
+
+
+.bar {
+    background: var(--primary-col-1); 
+    align-self: end; 
+    border-radius: 10px;
+}
+
+.today {
+    background: var(--primary-col-2);     
+}
+.details {
+    border-top: 2px solid var(--neutral-col-3); 
+    padding: 1rem 0;
+}
+
+.d-flex {display: flex}
+.flex-column {flex-direction: column;}
+.justify-content-around {justify-content: space-around;}
+.justify-content-between {justify-content: space-between;}
+.justify-content-evenly {justify-content: space-evenly;}
+.align-self-end {align-self: flex-end}
+.fs-1 {font-size: 1.5em}
+.fs-2 {font-size: 2em}
