@@ -2,7 +2,9 @@
 
 :root {
     --primary-col-1: hsl(10, 79%, 65%);
+    --primary-col-1-hsl: 10, 79%, 65%;
     --primary-col-2: hsl(186, 34%, 60%);
+    --primary-col-2-hsl: 186, 34%, 60%;
     --neutral-col-1: hsl(25, 47%, 15%);
     --neutral-col-2: hsl(28, 10%, 53%);
     --neutral-col-3: hsl(27, 66%, 92%);
@@ -55,6 +57,12 @@ header {
 .fw-bold {
     font-weight: bold; 
 }
+.font-color-n1 {
+    color: var(--neutral-col-1)
+}
+.font-color-n2 {
+    color: var(--neutral-col-2)
+}
 
 
 
@@ -72,24 +80,73 @@ main {
     padding-top: 2rem; 
     gap: 1rem;   
     display: grid; 
+    /* display: flex;  */
     
 }
 
 .bar-container {
-    flex: 1; 
+    flex-basis: 100%; 
     display: grid; 
-    grid-template-rows: 4fr 1fr;
+    grid-template-rows: 4fr 0.5fr;
+    align-items: center;
 }
 
 
 .bar {
+    width: 100%; 
+    height: 100%; 
     background: var(--primary-col-1); 
     align-self: end; 
-    border-radius: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    animation: grow 1s ease-in-out 0s 1 forwards;
+}
+
+@keyframes grow {
+    from {
+        height: 0%;
+    }
+    to {
+        height: 100%;
+    }
+}
+
+.bar:hover{
+    background-color: hsla(var(--primary-col-1-hsl), 0.7);
+}
+.bar-tooltip {
+    min-width: 120%; 
+    text-align: center;
+    position: absolute;
+    display: none;
+    background-color: var(--neutral-col-1);
+    color: var(--neutral-col-4);
+    top: -2rem; 
+    left: 50%; 
+    transform: translateX(-50%);
+    border-radius: 5px;
+    padding: 0.25rem 0.5rem;
+}
+
+.bar:hover .bar-tooltip {
+    opacity: 1;
+    display: inline-block; 
+}
+.label {
+    color: var(--neutral-col-2);
+    font-size: 12px; 
+    align-self: center;
+    width: auto; 
+    text-wrap: wrap;
+    text-align: center;
 }
 
 .today {
     background: var(--primary-col-2);     
+}
+.today:hover {
+    background-color: hsla(var(--primary-col-2-hsl),0.7);     
 }
 .details {
     border-top: 2px solid var(--neutral-col-3); 
@@ -104,3 +161,10 @@ main {
 .align-self-end {align-self: flex-end}
 .fs-1 {font-size: 1.5em}
 .fs-2 {font-size: 2em}
+
+@media screen and (min-width: 1440px) {
+    header, main {
+        width: min(40%, 78rem); 
+        margin-inline: auto; 
+    }
+}
